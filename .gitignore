@@ -18,6 +18,5 @@ doc/
 *.swp
 *~
 .idea
-database.yml
 .secret
 .DS_Store
