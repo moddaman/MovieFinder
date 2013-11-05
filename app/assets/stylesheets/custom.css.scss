@@ -89,13 +89,20 @@ header nav ul li a{
 
 
 .searchForm {
+
    border:0px ;
    width:50%;
    margin:0 auto;
    text-align:center;
 }
 
-/* footer */
+
+input[type="text"]
+{
+    letter-spacing: 2px;
+
+
+  }
 
 footer {
   margin-top: 45px;
