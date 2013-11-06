@@ -1,7 +1,9 @@
 FilmNett::Application.routes.draw do
 
-  get 'test' => 'test#main'
+  resources :users
   match '/signup',  to: 'users#new',            via: 'get'
+
+  get 'test' => 'test#main'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
