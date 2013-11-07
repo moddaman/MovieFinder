@@ -2,8 +2,10 @@ FilmNett::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
-  root  'test#main'
+
+  root  'static#feed'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout',  to: 'sessions#destroy',         via: 'post'
