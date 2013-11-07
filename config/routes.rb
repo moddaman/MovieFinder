@@ -1,5 +1,7 @@
 FilmNett::Application.routes.draw do
 
+  resources :movies
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
@@ -9,9 +11,8 @@ FilmNett::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout',  to: 'sessions#destroy',         via: 'post'
+  match '/search_movie',  to: 'search#search_movie',            via: 'get'
 
-
-  get 'test' => 'test#main'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
