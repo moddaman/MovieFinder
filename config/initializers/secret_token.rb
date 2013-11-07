@@ -9,4 +9,21 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-FilmNett::Application.config.secret_key_base = '100f58c31daf6e880cd3c9b166e5e13d2389d7a43083592054ebf6c267598a5c4b798bfa342502f4d100236c16eb13ec6fc43843c57323c6e09a058ec90f2684'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+FilmNett::Application.config.secret_key_base = secure_token
+
