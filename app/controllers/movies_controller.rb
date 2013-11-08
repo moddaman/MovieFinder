@@ -12,6 +12,13 @@ class MoviesController < ApplicationController
   def show
   end
 
+  # GET /movies/1
+  # GET /movies/1.json
+  def show_by_title
+    @movie = Movie.find_by search_title: params[:search_title].downcase
+    render 'show'
+  end
+
   # GET /movies/new
   def new
     @movie = Movie.new

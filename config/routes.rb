@@ -12,6 +12,7 @@ FilmNett::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout',  to: 'sessions#destroy',         via: 'post'
   match '/search_movie',  to: 'search#search_movie',            via: 'get'
+  match '/movies/title/:search_title',  to: 'movies#show_by_title',            via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

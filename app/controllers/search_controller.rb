@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   require 'filmbuff'
 
   def search_movie
-    movie = Movie.find_by title: params[:query]
+    movie = Movie.find_by search_title: params[:query]
     if movie
       @movie = movie
       @from_db = true

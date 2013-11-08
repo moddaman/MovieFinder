@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 
-  #attr_accessor :title, :tagline, :plot, :runtime, :rating, :votes, :poster_url, :release_date
+  validates :search_title, presence: true, uniqueness: true
 
   def from_filmbuff(fb)
     self.imdb_id = fb.imdb_id
@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
     self.votes = fb.votes
     self.poster_url = fb.poster_url
     self.release_date = fb.release_date
+    self.search_title = fb.title.downcase
   end
 
 end

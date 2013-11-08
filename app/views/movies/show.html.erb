@@ -1,49 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Imdb:</strong>
-  <%= @movie.imdb_id %>
-</p>
+<div id="movie_page_image">
+  <div id="image"><%= image_tag(@movie.poster_url) %> </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<div id="movie_page_description">
+  <p>
+  <h3><%= @movie.title %> </h3>
+  </p>
 
-<p>
-  <strong>Tagline:</strong>
-  <%= @movie.tagline %>
-</p>
+  <p>
+    <i><%= @movie.tagline %></i>
+  </p>
 
-<p>
-  <strong>Plot:</strong>
-  <%= @movie.plot %>
-</p>
+  <p>
+    <%= @movie.plot %>
+  </p>
 
-<p>
-  <strong>Runtime:</strong>
-  <%= @movie.runtime %>
-</p>
+  <p>
+    <strong>Runtime:</strong>
+    <%= @movie.runtime %>
+  </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @movie.rating %>
-</p>
+  <p>
+    <strong>Rating:</strong>
+    <%= @movie.rating %>
+  </p>
 
-<p>
-  <strong>Votes:</strong>
-  <%= @movie.votes %>
-</p>
+  <p>
+    <strong>Votes:</strong>
+    <%= @movie.votes %>
+  </p>
 
-<p>
-  <strong>Poster url:</strong>
-  <%= @movie.poster_url %>
-</p>
+  <p>
+    <strong>Release date:</strong>
+    <%= @movie.release_date %>
+  </p>
+</div>
 
-<p>
-  <strong>Release date:</strong>
-  <%= @movie.release_date %>
-</p>
+
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

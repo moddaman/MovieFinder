@@ -209,6 +209,19 @@ input {
   @extend .error;
 }
 
+/* Movie page */
+
+#movie_page_image {
+  float:left;
+  width: 40%;
+}
+
+#movie_page_description {
+  padding: 30px;
+  float: left;
+  width: 40%;
+}
+
 
 /* Users index */
 
