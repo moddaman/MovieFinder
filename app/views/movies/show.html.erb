@@ -5,9 +5,11 @@
 </div>
 
 <div id="movie_page_description">
-  <p>
-  <h3><%= @movie.title %> </h3>
-  </p>
+
+  <div>
+  <h3 id="movie_title"><%= @movie.title %> </h3>
+  <%=image_tag("add.png", id: "add_icon", title: "Add to collection")%>
+  </div>
 
   <p>
     <i><%= @movie.tagline %></i>
@@ -15,11 +17,6 @@
 
   <p>
     <%= @movie.plot %>
-  </p>
-
-  <p>
-    <strong>Runtime:</strong>
-    <%= @movie.runtime %>
   </p>
 
   <p>
