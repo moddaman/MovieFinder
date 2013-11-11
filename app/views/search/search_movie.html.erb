@@ -1,0 +1,6 @@
+<div id="hits">
+  <div id="image"><%= link_to image_tag(@movie.poster_url), "movies/title/#{@movie.search_title}" %> </div>
+  <h3><div id="image"><%= link_to @movie.title, "movies/title/#{@movie.search_title}" %> </div></h3>
+  from db? <%= @from_db %>
+  ID: <%= @movie.id %>
+</div>

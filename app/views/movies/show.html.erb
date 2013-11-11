@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div id="movie_page_image">
+  <div id="image"><%= image_tag(@movie.poster_url) %> </div>
+</div>
+
+<div id="movie_page_description">
+
+  <div>
+  <h3 id="movie_title"><%= @movie.title %> </h3>
+  <%=image_tag("add.png", id: "add_icon", title: "Add to collection")%>
+  </div>
+
+  <p>
+    <i><%= @movie.tagline %></i>
+  </p>
+
+  <p>
+    <%= @movie.plot %>
+  </p>
+
+  <p>
+    <strong>Rating:</strong>
+    <%= @movie.rating %>
+  </p>
+
+  <p>
+    <strong>Votes:</strong>
+    <%= @movie.votes %>
+  </p>
+
+  <p>
+    <strong>Release date:</strong>
+    <%= @movie.release_date %>
+  </p>
+</div>
+
+
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

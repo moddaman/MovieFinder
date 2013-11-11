@@ -238,6 +238,28 @@ input {
   @extend .error;
 }
 
+/* Movie page */
+
+#movie_page_image {
+  float:left;
+  width: 40%;
+}
+
+#movie_page_description {
+  padding: 30px;
+  float: left;
+  width: 40%;
+}
+
+#add_icon {
+  display: inline;
+  width: 30px;
+}
+
+#movie_title {
+  display: inline;
+}
+
 
 /* Users index */
 
@@ -252,6 +274,15 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+/* Search results page */
+#image{
+  width:300px;
+}
+
+#hits{
+
 }
 
 
