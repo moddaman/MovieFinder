@@ -15,3 +15,20 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+
+    $(".users_btn").click(function(){
+        $(".micropost_hits").hide()
+        $(".user_hits").show()
+        $(this).parent().siblings('li').removeClass('active');
+        $(this).parent().addClass('active');
+    });
+    $(".micropost_btn").click(function(){
+        $(".user_hits").hide()
+        $(".micropost_hits").show()
+        $(this).parent().siblings('li').removeClass('active');
+        $(this).parent().addClass('active');
+    });
+});

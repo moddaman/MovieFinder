@@ -14,11 +14,13 @@ FilmNett::Application.routes.draw do
 
 
   root  'static#feed'
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout',  to: 'sessions#destroy',         via: 'post'
-  match '/search_movie',  to: 'search#search_movie',            via: 'get'
-  match '/movies/title/:search_title',  to: 'movies#show_by_title',            via: 'get'
+  match '/home',                        to: 'static#home',                via: 'get'
+  match '/signup',                      to: 'users#new',                  via: 'get'
+  match '/signin',                      to: 'sessions#new',               via: 'get'
+  match '/signout',                     to: 'sessions#destroy',           via: 'post'
+  match '/users',                       to: 'users',                       via: 'get'
+  match '/search_movie',                to: 'search#search_movie',        via: 'get'
+  match '/movies/title/:search_title',  to: 'movies#show_by_title',       via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
