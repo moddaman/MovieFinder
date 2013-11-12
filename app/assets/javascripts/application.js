@@ -28,7 +28,6 @@ $(document).ready(function(){
     $(".micropost_btn").click(function(){
         $(".user_hits").hide()
         $(".micropost_hits").show()
-        $(this).parent().siblings('li').removeClass('active');
-        $(this).parent().addClass('active');
+
     });
 });
