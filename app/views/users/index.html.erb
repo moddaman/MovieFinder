@@ -1,22 +1,18 @@
 
 <ul class="nav nav-pills">
   <li class="active">
-    <a class="all_btn">
-      All (<%= @microposts.count + @users.count %>)
-    </a>
+      <button id="all_btn" class="btn btn-primary">  All (<%= @microposts.count + @users.count %>) </button>
   </li>
   <li>
-    <a class="micropost_btn">
-      Posts (<%= @microposts.count %>)
-    </a>
+    <button id="micropost_btn" class="btn btn-success"> Posts (<%= @microposts.count %>)</button>
   </li>
   <li>
-    <a class="users_btn">
+      <button id="users_btn" class="btn btn-warning">
       Users (<%= @users.count %>)
-    </a>
+    </button>
   </li>
    <li>
-     <%= link_to "Movies", "#" %>
+     <button id="movies_btn" class="btn btn-danger">movies</button>
    </li>
   </ul>
 
