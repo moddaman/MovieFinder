@@ -19,7 +19,11 @@ class Movie < ActiveRecord::Base
   end
 
   def average_rating
-    ratings.sum(:score) / ratings.size
+    if ratings.size == 0
+      0
+    else
+      ratings.sum(:score) / ratings.size
+    end
   end
 
 end
