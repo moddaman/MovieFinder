@@ -310,6 +310,10 @@ aside {
   @include box_sizing;
 }
 
+#all_btn, #micropost_btn, #users_btn, #movies_btn {
+  margin-right: 10px;
+}
+
 
 /* test */
 
