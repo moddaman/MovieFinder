@@ -1,5 +1,8 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:show, :show_by_title]
+
+  #@user = current_user
 
   # GET /movies
   # GET /movies.json
@@ -16,6 +19,10 @@ class MoviesController < ApplicationController
   # GET /movies/1.json
   def show_by_title
     @movie = Movie.find_by search_title: params[:search_title].downcase
+    @rating = Rating.where(movie_id: @movie.id, user_id: @current_user.id).first 
+    unless @rating 
+      @rating = Rating.create(movie_id: @movie.id, user_id: @current_user.id, score: 0) 
+    end
     render 'show'
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108103543) do
+ActiveRecord::Schema.define(version: 20131113160641) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20131108103543) do
     t.datetime "updated_at"
     t.string   "search_title"
   end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.integer  "score"
+    t.string   "default"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["movie_id"], name: "index_ratings_on_movie_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

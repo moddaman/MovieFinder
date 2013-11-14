@@ -20,7 +20,7 @@
   </p>
 
   <p>
-    <strong>Rating:</strong>
+    <strong>IMDB Rating:</strong>
     <%= @movie.rating %>
   </p>
 
@@ -29,13 +29,38 @@
     <%= @movie.votes %>
   </p>
 
+  <strong>Averate rating:</strong>
+    <div id="star"></div>
+<p></p>
+  <strong>Your rating:</strong>
+    <div id="user_star"></div>
   <p>
+    
     <strong>Release date:</strong>
     <%= @movie.release_date %>
   </p>
 </div>
 
 
-
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
+
+<script>
+  $('#star').raty({
+    readOnly: true,
+    score: <%= @movie.average_rating %>,
+    path: '/assets'
+  });
+
+  $('#user_star').raty({
+    score: <%= @rating.score %>,
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PATCH',
+        data: { score: score }
+      });
+    }
+  });
+</script>
