@@ -29,6 +29,7 @@ $(document).ready(function(){
 
     $("#users_btn").click(function(){
         $(".micropost_hits").hide()
+        $(".movies_hit").hide()
         $(".user_hits").show("slow")
         $(this).parent().siblings('li').removeClass('active');
         $(this).parent().addClass('active');
@@ -36,7 +37,16 @@ $(document).ready(function(){
 
     $("#micropost_btn").click(function(){
         $(".user_hits").hide()
-        $(".micropost_hits").show("slow")
+        $(".movies_hits").hide()
+        $(".micropost_hit").show("slow")
+        $(this).parent().siblings('li').removeClass('active');
+        $(this).parent().addClass('active');
+    });
+
+    $("#movies_btn").click(function(){
+        $(".user_hits").hide()
+        $(".micropost_hits").hide()
+        $(".movies_hit").show("slow")
         $(this).parent().siblings('li').removeClass('active');
         $(this).parent().addClass('active');
     });

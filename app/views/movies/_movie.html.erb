@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<div id="movie_page_image">
+  <div id="image"><%= image_tag(@movie.poster_url) %> </div>
+</div>
+
+<div id="movie_page_description">
+
+  <div>
+    <h3 id="movie_title"><%= @movie.title %> </h3>
+    <%=image_tag("add.png", id: "add_icon", title: "Add to collection")%>
+  </div>
+
+  <p>
+    <i><%= @movie.tagline %></i>
+  </p>
+
+  <p>
+    <%= @movie.plot %>
+  </p>
+
+  <p>
+    <strong>IMDB Rating:</strong>
+    <%= @movie.rating %>
+  </p>
+
+  <p>
+    <strong>Votes:</strong>
+    <%= @movie.votes %>
+  </p>
+
+  <strong>Averate rating:</strong>
+  <div id="star"></div>
+  <p></p>
+  <strong>Your rating:</strong>
+  <div id="user_star"></div>
+  <p>
+
+    <strong>Release date:</strong>
+    <%= @movie.release_date %>
+  </p>
+</div>
+
+
+<script>
+    $('#star').raty({
+        readOnly: true,
+        score: <%= @movie.average_rating %>,
+        path: '/assets'
+    });
+
+    $('#user_star').raty({
+        score: <%= @rating.score %>,
+        path: '/assets',
+        click: function(score, evt) {
+            $.ajax({
+                url: '/ratings/' + <%= @rating.id %>,
+                type: 'PATCH',
+                data: { score: score }
+            });
+        }
+    });
+</script>

@@ -12,7 +12,9 @@
     </button>
   </li>
    <li>
-     <button id="movies_btn" class="btn btn-danger">movies</button>
+     <button id="movies_btn" class="btn btn-danger">
+       movies ( )
+     </button>
    </li>
   </ul>
 
@@ -25,6 +27,12 @@
 <div class="micropost_hits">
   <ul class="users">
       <%= render @microposts %>
+  </ul>
+</div>
+
+<div class="movie_hit">
+  <ul class="users">
+    <%= render @movie %>
   </ul>
 </div>
 
