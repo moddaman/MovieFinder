@@ -21,10 +21,6 @@ class UsersController < ApplicationController
       @from_db = false
       @movie.save
     end
-    @rating = Rating.where(movie_id: @movie.id, user_id: @current_user.id).first
-    unless @rating
-      @rating = Rating.create(movie_id: @movie.id, user_id: @current_user.id, score: 0)
-    end
     #@users = User.paginate(page: params[:page])
   end
 
