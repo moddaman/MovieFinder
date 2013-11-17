@@ -3,11 +3,28 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
+  require 'filmbuff'
 
 
   def index
     @users = User.search(params[:search])
     @microposts = Micropost.search(params[:search])
+    movie = Movie.find_by search_title: params[:search]
+    if movie
+      @movie = movie
+      @from_db = true
+    elsif
+     imdb = FilmBuff::IMDb.new
+      movie = imdb.find_by_title(params[:search])
+      @movie = Movie.new
+      @movie.from_filmbuff(movie)
+      @from_db = false
+      @movie.save
+    end
+    @rating = Rating.where(movie_id: @movie.id, user_id: @current_user.id).first
+    unless @rating
+      @rating = Rating.create(movie_id: @movie.id, user_id: @current_user.id, score: 0)
+    end
     #@users = User.paginate(page: params[:page])
   end
 
