@@ -56,6 +56,7 @@
     score: <%= @rating.score %>,
     path: '/assets',
     click: function(score, evt) {
+      
       $.ajax({
         url: '/ratings/' + <%= @rating.id %>,
         type: 'PATCH',

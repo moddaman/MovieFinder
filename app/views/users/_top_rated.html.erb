@@ -1,0 +1,6 @@
+<% @toprated.each do |toprated| %>
+    <% movie = toprated.movie %>
+    <div id="movie_index_item">
+      <h3><div id="image"><%= link_to movie.title, movie %> </div></h3>
+    <% end %>
+<br>

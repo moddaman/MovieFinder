@@ -13,6 +13,10 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
+    @rating = Rating.where(movie_id: @movie.id, user_id: @current_user.id).first 
+    unless @rating 
+      @rating = Rating.create(movie_id: @movie.id, user_id: @current_user.id, score: 0) #TODO: fix so that users hwo dont rate dont give 0 automaticly
+    end
   end
 
   # GET /movies/1
@@ -21,7 +25,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by search_title: params[:search_title].downcase
     @rating = Rating.where(movie_id: @movie.id, user_id: @current_user.id).first 
     unless @rating 
-      @rating = Rating.create(movie_id: @movie.id, user_id: @current_user.id, score: 0) 
+      @rating = Rating.create(movie_id: @movie.id, user_id: @current_user.id, score: 0) #TODO: fix so that users hwo dont rate dont give 0 automaticly
     end
     render 'show'
   end
