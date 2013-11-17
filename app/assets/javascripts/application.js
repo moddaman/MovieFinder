@@ -21,15 +21,16 @@
 $(document).ready(function(){
 
     $("#all_btn").click(function(){
-        $(".micropost_hits").show()
+        $(".micropost_hits").show("slow")
         $(".user_hits").show("slow")
+        $(".movie_hit").show("slow")
         $(this).parent().siblings('li').removeClass('active');
         $(this).parent().addClass('active');
     });
 
     $("#users_btn").click(function(){
         $(".micropost_hits").hide()
-        $(".movies_hit").hide()
+        $(".movie_hit").hide()
         $(".user_hits").show("slow")
         $(this).parent().siblings('li').removeClass('active');
         $(this).parent().addClass('active');
@@ -37,8 +38,8 @@ $(document).ready(function(){
 
     $("#micropost_btn").click(function(){
         $(".user_hits").hide()
-        $(".movies_hits").hide()
-        $(".micropost_hit").show("slow")
+        $(".movie_hit").hide()
+        $(".micropost_hits").show("slow")
         $(this).parent().siblings('li').removeClass('active');
         $(this).parent().addClass('active');
     });
@@ -46,7 +47,7 @@ $(document).ready(function(){
     $("#movies_btn").click(function(){
         $(".user_hits").hide()
         $(".micropost_hits").hide()
-        $(".movies_hit").show("slow")
+        $(".movie_hit").show("slow")
         $(this).parent().siblings('li').removeClass('active');
         $(this).parent().addClass('active');
     });

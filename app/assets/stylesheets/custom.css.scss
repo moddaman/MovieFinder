@@ -293,6 +293,16 @@ input {
 .timestamp {
   color: $grayLight;
 }
+.thumbnail {
+  width: 80px;
+  height: 115px;
+  float: left;
+  margin-right: 10px;
+
+}
+
+
+
 .gravatar {
   float: left;
   margin-right: 10px;
