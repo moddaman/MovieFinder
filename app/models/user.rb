@@ -59,6 +59,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def top_rated
+    all_rated_movies = ratings.where.not(:score => 0).all
+    all_rated_movies = all_rated_movies.sort { |a,b| a.score <=> b.score }
+    all_rated_movies.reverse!
+    all_rated_movies.take(10)
+  end
+
   private
 
   def create_remember_token

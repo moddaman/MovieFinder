@@ -27,10 +27,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
-    all_rated_movies = @user.ratings.where(:score => 1).all
-    all_rated_movies = all_rated_movies.sort { |a,b| a.score <=> b.score }
-    all_rated_movies.reverse!
-    @toprated = all_rated_movies.take(20)
+    @toprated = @user.top_rated
   end
 
   def new

@@ -19,10 +19,15 @@ class Movie < ActiveRecord::Base
   end
 
   def average_rating
-    if ratings.size == 0
+    vilide_ratings = ratings.where.not(:score => 0).all
+    if vilide_ratings.size <= 0
       0
     else
-      ratings.sum(:score) / ratings.size
+      average_rating = 0
+      vilide_ratings.each do |rating|
+        average_rating = average_rating + rating.score
+      end
+      average_rating
     end
   end
 
