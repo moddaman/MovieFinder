@@ -11,13 +11,38 @@
       Users (<%= @users.count %>)
     </button>
   </li>
+
+
+  <!-- HACK start, ---->
+  <% if @movie.nil? %>
+
+      <li>
+        <button id="movies_btn" class="btn btn-danger">
+          movies (0)
+        </button>
+      </li>
+
+  <% end %>
+  <!-- Hack end -->
+
+
+
+  <% if !@movie.nil? %>
    <li>
      <button id="movies_btn" class="btn btn-danger">
-       movies ( )
+       movies (1)
      </button>
    </li>
   </ul>
 
+
+<div class="movie_hit">
+  <ul class="users">
+    <%= render @movie %>
+  </ul>
+</div>
+
+  <% end %>
 
 <div class="user_hits">
     <ul class="users">
@@ -30,10 +55,6 @@
   </ul>
 </div>
 
-<div class="movie_hit">
-  <ul class="users">
-    <%= render @movie %>
-  </ul>
-</div>
+
 
 
