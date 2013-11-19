@@ -3,6 +3,7 @@ class Movie < ActiveRecord::Base
   validates :search_title, presence: true, uniqueness: true
 
   has_many :ratings
+  has_many :listed_movies, foreign_key: "movie_id", dependent: :destroy
   belongs_to :user
 
   def from_filmbuff(fb)
