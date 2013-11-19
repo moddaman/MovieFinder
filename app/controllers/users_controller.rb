@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       @movie = movie
       @from_db = true
     elsif
-     imdb = FilmBuff::IMDb.new
+      imdb = FilmBuff::IMDb.new
       movie = imdb.find_by_title(params[:search])
       @movie = Movie.new
       @movie.from_filmbuff(movie)
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Movie thingy!"
+      flash[:success] = "Welcome to the MOVIENIGHT!"
       redirect_to @user
     else
       render 'new'
