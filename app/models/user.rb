@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :microposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :listed_movies, foreign_key: "user_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
            class_name:  "Relationship",
@@ -46,6 +47,10 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy!
+  end
+
+  def list_movie(movie)
+    listed_movies.create!(movie_id: movie.id, user_id: self.id)
   end
 
   def self.search(search)
