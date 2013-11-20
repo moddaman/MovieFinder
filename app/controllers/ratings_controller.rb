@@ -15,9 +15,9 @@ class RatingsController < ApplicationController
 
   def post
     if @rating.score < 2
-      return 'Gave the movie ' + @rating.movie.title.to_s + ' only ' +  @rating.score.to_s + ' star'
+      return 'Ranked the movie ' + @rating.movie.title.to_s + ' only ' +  @rating.score.to_s + ' star'
     end
-    'Gave the movie ' + @rating.movie.title.to_s + ' ' +  @rating.score.to_s + ' stars'
+    'Ranked the movie ' + @rating.movie.title.to_s + ' with ' +  @rating.score.to_s + ' stars'
   end
 
 end
