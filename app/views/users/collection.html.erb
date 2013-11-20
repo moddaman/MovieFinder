@@ -9,6 +9,7 @@
       <% @collection.each do |movie| %>
           <% @movie = movie %>
           <%= render @movie %>
+          <%= link_to "Remove from collection", listed_movie_path(movie_id: @movie.id), :method => :delete %>
       <% end %>
     </ul>
   </div>
