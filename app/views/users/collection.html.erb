@@ -1,0 +1,15 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="span4">
+      <%= render 'user_box' %>
+      <%= render 'shared/stats' %>
+  </aside>
+  <div class="span8">
+    <ul class="users">
+      <% @collection.each do |movie| %>
+          <% @movie = movie %>
+          <%= render @movie %>
+      <% end %>
+    </ul>
+  </div>
+</div>

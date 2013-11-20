@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :collection]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       @movie = movie
       @from_db = true
     elsif
-      imdb = FilmBuff::IMDb.new
+    imdb = FilmBuff::IMDb.new
       movie = imdb.find_by_title(params[:search])
       @movie = Movie.new
       @movie.from_filmbuff(movie)
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-   # @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def update
@@ -78,6 +78,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  # GET /user/:id/collection
+  def collection
+    @title = "Collection"
+    @user = User.find(params[:id])
+    @collection = @user.movie_collection.paginate(page: params[:page])
+  end
+
 
   private
 
@@ -88,12 +95,12 @@ class UsersController < ApplicationController
 
   # Before filters
 
- # def signed_in_user
+  # def signed_in_user
   #  unless signed_in?
-   #   store_location
-   #   redirect_to signin_url, notice: "Please sign in."
-   # end
- # end
+  #   store_location
+  #   redirect_to signin_url, notice: "Please sign in."
+  # end
+  # end
 
   def correct_user
     @user = User.find(params[:id])

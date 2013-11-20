@@ -7,7 +7,7 @@ class ListedMoviesController < ApplicationController
     puts "here as well: #{@movie.inspect.to_s}"
     @user = current_user
     puts "and here: #{@user.inspect.to_s}"
-    current_user.list_movie(@movie)
+    current_user.follow_movie(@movie)
     respond_to do |format|
       format.html { redirect_to @user }
       format.js

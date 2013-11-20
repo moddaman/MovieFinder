@@ -12,10 +12,9 @@
     </strong>
     followers
   </a>
-  <!--- TODO --->
-  <a href="Collection">   <!-- #Temporary path doesnt exist -->
-    <strong id="followers" class="stat">
-      0
+  <a href="<%= collection_user_path(@user) %>">
+    <strong id="collection" class="stat">
+      <%= @user.movie_collection.count %>
     </strong>
     collection
   </a>

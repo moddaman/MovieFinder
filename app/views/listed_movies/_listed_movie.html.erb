@@ -1,0 +1,8 @@
+<li>
+  <%=  image_tag(@movie.poster_url, :class => "thumbnail")  %>
+  <%= link_to @movie.title, "movies/title/#{@movie.search_title}" %>
+  <br />
+  <i><%= @movie.tagline %> </i>
+  <br />
+  Rating: <%= @movie.rating %>
+</li>

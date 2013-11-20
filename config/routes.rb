@@ -3,7 +3,7 @@ FilmNett::Application.routes.draw {
 
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :collection
     end
   end
 
