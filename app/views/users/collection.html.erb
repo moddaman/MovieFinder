@@ -11,6 +11,7 @@
           <%= render @movie %>
           <%= link_to "Remove from collection", listed_movie_path(movie_id: @movie.id), :method => :delete %>
       <% end %>
+      <%= will_paginate @collection %>
     </ul>
   </div>
 </div>

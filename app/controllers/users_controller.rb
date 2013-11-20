@@ -88,7 +88,7 @@ class UsersController < ApplicationController
   def collection
     @title = "Collection"
     @user = User.find(params[:id])
-    @collection = @user.movie_collection.paginate(page: params[:page])
+    @collection = @user.movie_collection.paginate(page: params[:page], :per_page => 10)
   end
 
 
