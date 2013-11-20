@@ -15,11 +15,17 @@ class UsersController < ApplicationController
       @from_db = true
     elsif
     imdb = FilmBuff::IMDb.new
-      movie = imdb.find_by_title(params[:search])
-      @movie = Movie.new
-      @movie.from_filmbuff(movie)
-      @from_db = false
-      @movie.save
+      begin
+        movie = imdb.find_by_title(params[:search])
+        @movie = Movie.new
+        @movie.from_filmbuff(movie)
+        @from_db = false
+        @movie.save
+      rescue => ex
+        @movie = nil
+        puts "no movie"
+      end
+
     end
     #@users = User.paginate(page: params[:page])
   end
