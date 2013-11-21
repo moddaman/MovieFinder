@@ -7,8 +7,8 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.search(params[:search])
-    @microposts = Micropost.search(params[:search])
+    @users = User.search(params[:search]).take(50)
+    @microposts = Micropost.search(params[:search]).take(100)
     movie = Movie.find_by search_title: params[:search]
     if movie
       @movie = movie
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted."
-    redirect_to users_url
+    redirect_to root_url
   end
 
   def create

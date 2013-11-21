@@ -59,7 +59,8 @@ class MoviesController < ApplicationController
   # PATCH/PUT /movies/1
   # PATCH/PUT /movies/1.json
   def update
-    respond_to do |format|
+    if @current_user.admin?
+      respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
         format.json { head :no_content }
@@ -67,7 +68,7 @@ class MoviesController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
-    end
+      end
   end
 
   # DELETE /movies/1
