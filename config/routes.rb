@@ -18,7 +18,6 @@ FilmNett::Application.routes.draw {
 
 
   root 'static#feed'
-  match '/hallo', to: 'velkommen#hei', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'post'
