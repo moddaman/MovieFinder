@@ -24,9 +24,8 @@
                   <%= @current_user.name %> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Profile", root_path %></li>
+                  <li><%= link_to "Profile", @user %></li>
                   <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                  <li><%= link_to "hallo", hallo_path %></li>
                   <li class="divider"></li>
                   <li>
                     <%= link_to "Sign out", signout_path, method: "destroy" %>
