@@ -69,6 +69,7 @@ class MoviesController < ApplicationController
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
       end
+    end
   end
 
   # DELETE /movies/1
